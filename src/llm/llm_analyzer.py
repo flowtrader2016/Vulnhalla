@@ -391,7 +391,7 @@ class LLMAnalyzer:
         db_path: str,
         temperature: float = 0.2,
         top_p: float = 0.2
-    ) -> Tuple[List[Dict[str, Any]], str]:
+    ) -> Tuple[List[Dict[str, Any]], str, int, int]:
         """
         Main loop to keep querying the LLM with the MESSAGES context plus
         any new system instructions or tool calls, until a final answer with
@@ -407,10 +407,12 @@ class LLMAnalyzer:
             top_p (float, optional): Nucleus sampling. Defaults to 0.2.
 
         Returns:
-            Tuple[List[Dict[str, Any]], str]:
+            Tuple[List[Dict[str, Any]], str, int, int]:
                 - The final conversation messages,
-                - The final content from the LLM's last message.
-        
+                - The final content from the LLM's last message,
+                - Total input tokens used,
+                - Total output tokens used.
+
         Raises:
             RuntimeError: If LLM model not initialized.
             LLMApiError: If LLM API call fails (rate limits, timeouts, auth failures, etc.).
@@ -433,6 +435,8 @@ class LLMAnalyzer:
         round_number = 0
         consecutive_failures = 0  # Track consecutive "not found" tool results
         final_content = ""
+        accumulated_input_tokens = 0
+        accumulated_output_tokens = 0
 
         while not got_answer:
             round_number += 1
@@ -506,13 +510,15 @@ class LLMAnalyzer:
                 for line in display_content.split("\n"):
                     logger.info("      %s", line)
 
-            # Log token usage if available
+            # Log and accumulate token usage if available
             if hasattr(response, 'usage') and response.usage:
                 usage = response.usage
+                round_input = getattr(usage, 'prompt_tokens', 0) or 0
+                round_output = getattr(usage, 'completion_tokens', 0) or 0
+                accumulated_input_tokens += round_input
+                accumulated_output_tokens += round_output
                 logger.info("    [Round %d] Tokens — input: %s, output: %s",
-                           round_number,
-                           getattr(usage, 'prompt_tokens', '?'),
-                           getattr(usage, 'completion_tokens', '?'))
+                           round_number, round_input, round_output)
 
             if not tool_calls:
                 # Check if we have a recognized status code
@@ -659,4 +665,4 @@ class LLMAnalyzer:
                         )
                     })
 
-        return messages, final_content
+        return messages, final_content, accumulated_input_tokens, accumulated_output_tokens

@@ -509,7 +509,7 @@ class IssueAnalyzer:
         issue_type: str,
         issues_of_type: List[Dict[str, str]],
         llm_analyzer: LLMAnalyzer
-    ) -> None:
+    ) -> Tuple[int, int]:
         """
         Processes all issues of a single type. Builds file/folder paths, runs
         analysis, calls the LLM, and saves results.
@@ -525,7 +525,10 @@ class IssueAnalyzer:
             issue_type (str): The name of the issue type.
             issues_of_type (List[Dict[str, str]]): All issues belonging to that type.
             llm_analyzer (LLMAnalyzer): The LLM analyzer instance to use for queries.
-        
+
+        Returns:
+            Tuple[int, int]: Total input tokens and output tokens used.
+
         Raises:
             CodeQLError: If database files cannot be read (YAML, ZIP, CSV, etc.).
             VulnhallaError: If result files cannot be written.
@@ -539,6 +542,8 @@ class IssueAnalyzer:
         false_issues = []
         more_data = []
         skipped_issues = []  # Track issues skipped due to LLM errors (timeout, rate limit, etc.)
+        total_input_tokens = 0
+        total_output_tokens = 0
 
         logger.info("=" * 70)
         logger.info("ISSUE TYPE: %s", issue_type)
@@ -621,13 +626,15 @@ class IssueAnalyzer:
             logger.info("  Sending to LLM...")
             issue_start_time = time.time()
             try:
-                messages, content = llm_analyzer.run_llm_security_analysis(
+                messages, content, input_tokens, output_tokens = llm_analyzer.run_llm_security_analysis(
                     prompt,
                     function_tree_file,
                     current_function,
                     functions,
                     self.db_path
                 )
+                total_input_tokens += input_tokens
+                total_output_tokens += output_tokens
             except LLMApiError as e:
                 # Skip this issue on LLM errors (timeout, rate limit, etc.) and continue with others
                 elapsed = time.time() - issue_start_time
@@ -672,8 +679,10 @@ class IssueAnalyzer:
             logger.warning("  Skipped (LLM errors): %d (IDs: %s)", len(skipped_issues), skipped_issues)
         if real_issues:
             logger.info("  >>> True positive IDs: %s", real_issues)
+        logger.info("  Tokens — input: %d, output: %d", total_input_tokens, total_output_tokens)
         logger.info("=" * 70)
         logger.info("")
+        return total_input_tokens, total_output_tokens
 
 
     def run(self, dbs_dir: str) -> None:
@@ -710,8 +719,20 @@ class IssueAnalyzer:
         logger.info("")
 
         # Process all issues, type by type
+        grand_input_tokens = 0
+        grand_output_tokens = 0
         for issue_type in issues_statistics.keys():
-            self.process_issue_type(issue_type, issues_statistics[issue_type], llm_analyzer)
+            input_tok, output_tok = self.process_issue_type(issue_type, issues_statistics[issue_type], llm_analyzer)
+            grand_input_tokens += input_tok
+            grand_output_tokens += output_tok
+
+        if grand_input_tokens > 0 or grand_output_tokens > 0:
+            logger.info("=" * 70)
+            logger.info("TOTAL TOKEN USAGE")
+            logger.info("  Input tokens:  %d", grand_input_tokens)
+            logger.info("  Output tokens: %d", grand_output_tokens)
+            logger.info("  Total tokens:  %d", grand_input_tokens + grand_output_tokens)
+            logger.info("=" * 70)
 
 if __name__ == '__main__':
     # Initialize logging
