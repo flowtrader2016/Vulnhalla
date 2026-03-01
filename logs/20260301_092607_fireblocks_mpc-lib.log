@@ -1,0 +1,23 @@
+Run log will be saved to: logs/20260301_092607_fireblocks_mpc-lib.log
+Starting Vulnhalla Analysis Pipeline
+============================================================
+
+Step 1: Fetching CodeQL Databases
+------------------------------------------------------------
+Fetching database for: fireblocks/mpc-lib
+Database already exists at output/databases/c/mpc-lib, skipping download (use --force to re-download)
+
+Step 2: Running CodeQL Queries
+------------------------------------------------------------
+Output files already exist for this DB, skipping...
+[+] done!
+
+Step 3: Classifying Results with LLM
+------------------------------------------------------------
+Processing DB: output/databases/c/mpc-lib/mpc-lib
+Total issues found: 0
+
+
+[+] Pipeline completed successfully!
+
+To view results, run: vulnhalla-ui

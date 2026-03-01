@@ -1,0 +1,8 @@
+Run log will be saved to: logs/20260228_214029_libretro_RetroArch.log
+Starting Vulnhalla Analysis Pipeline
+============================================================
+
+Step 1: Fetching CodeQL Databases
+------------------------------------------------------------
+Fetching database for: libretro/RetroArch
+Downloading repo libretro/RetroArch

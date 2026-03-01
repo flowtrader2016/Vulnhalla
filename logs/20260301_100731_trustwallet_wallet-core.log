@@ -1,0 +1,10 @@
+Run log will be saved to: logs/20260301_100731_trustwallet_wallet-core.log
+Starting Vulnhalla Analysis Pipeline
+============================================================
+
+Step 1: Fetching CodeQL Databases
+------------------------------------------------------------
+Fetching database for: trustwallet/wallet-core
+No c DB found for trustwallet/wallet-core
+[-] Step 1: Failed to fetch CodeQL databases: No CodeQL databases were downloaded/found for trustwallet/wallet-core
+   Please check file permissions, disk space, and GitHub API access.

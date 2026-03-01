@@ -1,0 +1,23 @@
+Run log will be saved to: logs/20260301_094252_cosmos_ledger-cosmos.log
+Starting Vulnhalla Analysis Pipeline
+============================================================
+
+Step 1: Fetching CodeQL Databases
+------------------------------------------------------------
+Fetching database for: cosmos/ledger-cosmos
+Downloading repo cosmos/ledger-cosmos
+
+Step 2: Running CodeQL Queries
+------------------------------------------------------------
+Processing DB: output/databases/c/ledger-cosmos/cpp
+[+] done!
+
+Step 3: Classifying Results with LLM
+------------------------------------------------------------
+Processing DB: output/databases/c/ledger-cosmos/cpp
+Total issues found: 0
+
+
+[+] Pipeline completed successfully!
+
+To view results, run: vulnhalla-ui

@@ -1,0 +1,23 @@
+Run log will be saved to: logs/20260301_094333_nextcloud_client.log
+Starting Vulnhalla Analysis Pipeline
+============================================================
+
+Step 1: Fetching CodeQL Databases
+------------------------------------------------------------
+Fetching database for: nextcloud/client
+Downloading repo nextcloud/client
+
+Step 2: Running CodeQL Queries
+------------------------------------------------------------
+Processing DB: output/databases/c/client/client
+[+] done!
+
+Step 3: Classifying Results with LLM
+------------------------------------------------------------
+Processing DB: output/databases/c/client/client
+Total issues found: 0
+
+
+[+] Pipeline completed successfully!
+
+To view results, run: vulnhalla-ui

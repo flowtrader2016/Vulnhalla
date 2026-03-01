@@ -1,0 +1,12 @@
+Run log will be saved to: logs/20260301_092710_droe_sslsplit.log
+Starting Vulnhalla Analysis Pipeline
+============================================================
+
+Step 1: Fetching CodeQL Databases
+------------------------------------------------------------
+Fetching database for: droe/sslsplit
+Downloading repo droe/sslsplit
+
+Step 2: Running CodeQL Queries
+------------------------------------------------------------
+Processing DB: output/databases/c/sslsplit/sslsplit

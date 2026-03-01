@@ -35,6 +35,8 @@ Thumbs.db
 
 # Temp / log files
 *.log
+!logs/
+!logs/*.log
 *.tmp
 *.bak
 

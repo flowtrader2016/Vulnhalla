@@ -1,0 +1,23 @@
+Run log will be saved to: logs/20260301_093518_chia-network_chiavdf.log
+Starting Vulnhalla Analysis Pipeline
+============================================================
+
+Step 1: Fetching CodeQL Databases
+------------------------------------------------------------
+Fetching database for: chia-network/chiavdf
+Downloading repo chia-network/chiavdf
+
+Step 2: Running CodeQL Queries
+------------------------------------------------------------
+Processing DB: output/databases/c/chiavdf/cpp
+[+] done!
+
+Step 3: Classifying Results with LLM
+------------------------------------------------------------
+Processing DB: output/databases/c/chiavdf/cpp
+Total issues found: 0
+
+
+[+] Pipeline completed successfully!
+
+To view results, run: vulnhalla-ui

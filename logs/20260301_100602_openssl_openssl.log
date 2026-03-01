@@ -1,0 +1,10 @@
+Run log will be saved to: logs/20260301_100602_openssl_openssl.log
+Starting Vulnhalla Analysis Pipeline
+============================================================
+
+Step 1: Fetching CodeQL Databases
+------------------------------------------------------------
+Fetching database for: openssl/openssl
+No c DB found for openssl/openssl
+[-] Step 1: Failed to fetch CodeQL databases: No CodeQL databases were downloaded/found for openssl/openssl
+   Please check file permissions, disk space, and GitHub API access.

@@ -1,0 +1,10 @@
+Run log will be saved to: logs/20260228_214336_redis_redis.log
+Starting Vulnhalla Analysis Pipeline
+============================================================
+
+Step 1: Fetching CodeQL Databases
+------------------------------------------------------------
+Fetching database for: redis/redis
+[-] Step 1: Configuration error while fetching CodeQL databases: GitHub API returned 403 for https://api.github.com/repos/redis/redis/code-scanning/codeql/databases. Please check your GitHub token permissions.
+   Cause: 403 Client Error: rate limit exceeded for url: https://api.github.com/repos/redis/redis/code-scanning/codeql/databases
+   Please check your GitHub token and permissions.

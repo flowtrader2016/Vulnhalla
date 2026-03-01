@@ -1,0 +1,24 @@
+Run log will be saved to: logs/20260228_160243_coinbase_cb-mpc.log
+Starting Vulnhalla Analysis Pipeline
+============================================================
+
+Step 1: Fetching CodeQL Databases
+------------------------------------------------------------
+Fetching database for: coinbase/cb-mpc
+Downloading repo coinbase/cb-mpc
+
+Step 2: Running CodeQL Queries
+------------------------------------------------------------
+Processing DB: output/databases/c/cb-mpc/cpp
+[+] done!
+
+Step 3: Classifying Results with LLM
+------------------------------------------------------------
+Processing DB: output/databases/c/cb-mpc/cpp
+Total issues found: 0
+
+
+[4/4] Opening UI
+------------------------------------------------------------
+[+] Pipeline completed successfully!
+Opening results UI...
