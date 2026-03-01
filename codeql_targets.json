@@ -1,0 +1,3043 @@
+[
+  {
+    "nwo": "afterpay/sdk-android",
+    "language": "kotlin",
+    "codeql_databases": [
+      "java"
+    ],
+    "programs": [
+      "bc:blockopensource"
+    ]
+  },
+  {
+    "nwo": "airtable/airtable.js",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "airtable"
+    ]
+  },
+  {
+    "nwo": "apache/airflow",
+    "language": "python",
+    "codeql_databases": [
+      "python",
+      "javascript",
+      "go",
+      "actions",
+      "java"
+    ],
+    "programs": [
+      "ibb"
+    ]
+  },
+  {
+    "nwo": "apache/httpd",
+    "language": "cpp",
+    "codeql_databases": [
+      "python",
+      "javascript"
+    ],
+    "programs": [
+      "ibb"
+    ]
+  },
+  {
+    "nwo": "apache/tomcat",
+    "language": "java",
+    "codeql_databases": [
+      "java",
+      "javascript"
+    ],
+    "programs": [
+      "ibb"
+    ]
+  },
+  {
+    "nwo": "argoproj/argoproj",
+    "language": "python",
+    "codeql_databases": [
+      "python"
+    ],
+    "programs": [
+      "ibb"
+    ]
+  },
+  {
+    "nwo": "auth0/auth0-java",
+    "language": "java",
+    "codeql_databases": [
+      "java"
+    ],
+    "programs": [
+      "bc:auth0-okta"
+    ]
+  },
+  {
+    "nwo": "auth0/auth0-spa-js",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "bc:auth0-okta"
+    ]
+  },
+  {
+    "nwo": "auth0/auth0.js",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "bc:auth0-okta"
+    ]
+  },
+  {
+    "nwo": "auth0/auth0.net",
+    "language": "csharp",
+    "codeql_databases": [
+      "javascript",
+      "csharp"
+    ],
+    "programs": [
+      "bc:auth0-okta"
+    ]
+  },
+  {
+    "nwo": "auth0/lock",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "bc:auth0-okta"
+    ]
+  },
+  {
+    "nwo": "auth0/nextjs-auth0",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "bc:auth0-okta"
+    ]
+  },
+  {
+    "nwo": "auth0/react-native-auth0",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript",
+      "ruby",
+      "java"
+    ],
+    "programs": [
+      "bc:auth0-okta"
+    ]
+  },
+  {
+    "nwo": "automattic/jetpack",
+    "language": "php",
+    "codeql_databases": [
+      "javascript",
+      "actions"
+    ],
+    "programs": [
+      "automattic"
+    ]
+  },
+  {
+    "nwo": "automattic/sensei",
+    "language": "php",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "automattic"
+    ]
+  },
+  {
+    "nwo": "automattic/wp-job-manager",
+    "language": "php",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "automattic"
+    ]
+  },
+  {
+    "nwo": "backstage/backstage",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "spotify"
+    ]
+  },
+  {
+    "nwo": "basecamp/fizzy",
+    "language": "ruby",
+    "codeql_databases": [
+      "ruby",
+      "javascript",
+      "actions"
+    ],
+    "programs": [
+      "basecamp"
+    ]
+  },
+  {
+    "nwo": "buildonspark/spark",
+    "language": "javascript",
+    "codeql_databases": [
+      "python",
+      "javascript",
+      "rust",
+      "go"
+    ],
+    "programs": [
+      "lightspark_bbp"
+    ]
+  },
+  {
+    "nwo": "cashapp/cash-app-pay-android-sdk",
+    "language": "kotlin",
+    "codeql_databases": [
+      "java"
+    ],
+    "programs": [
+      "bc:blockopensource"
+    ]
+  },
+  {
+    "nwo": "cashapp/hermit",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "bc:blockopensource"
+    ]
+  },
+  {
+    "nwo": "cashapp/misk",
+    "language": "kotlin",
+    "codeql_databases": [
+      "java",
+      "javascript"
+    ],
+    "programs": [
+      "bc:blockopensource"
+    ]
+  },
+  {
+    "nwo": "chia-network/chia-blockchain",
+    "language": "python",
+    "codeql_databases": [
+      "python",
+      "javascript"
+    ],
+    "programs": [
+      "chia_network"
+    ]
+  },
+  {
+    "nwo": "chia-network/chia-blockchain-gui",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript",
+      "actions"
+    ],
+    "programs": [
+      "chia_network"
+    ]
+  },
+  {
+    "nwo": "chia-network/chia_rs",
+    "language": "rust",
+    "codeql_databases": [
+      "rust",
+      "python",
+      "actions"
+    ],
+    "programs": [
+      "chia_network"
+    ]
+  },
+  {
+    "nwo": "chia-network/chiapos",
+    "language": "html",
+    "codeql_databases": [
+      "cpp",
+      "python"
+    ],
+    "programs": [
+      "chia_network"
+    ]
+  },
+  {
+    "nwo": "chia-network/chiavdf",
+    "language": "cpp",
+    "codeql_databases": [
+      "cpp",
+      "python"
+    ],
+    "programs": [
+      "chia_network"
+    ]
+  },
+  {
+    "nwo": "chia-network/clvm_rs",
+    "language": "rust",
+    "codeql_databases": [
+      "python",
+      "actions",
+      "javascript"
+    ],
+    "programs": [
+      "chia_network"
+    ]
+  },
+  {
+    "nwo": "circlefin/aptos-cctp",
+    "language": "move",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "circle-bbp"
+    ]
+  },
+  {
+    "nwo": "circlefin/evm-cctp-contracts",
+    "language": "solidity",
+    "codeql_databases": [
+      "python"
+    ],
+    "programs": [
+      "circle-bbp"
+    ]
+  },
+  {
+    "nwo": "circlefin/evm-gateway-contracts",
+    "language": "solidity",
+    "codeql_databases": [
+      "javascript",
+      "ruby"
+    ],
+    "programs": [
+      "circle-bbp"
+    ]
+  },
+  {
+    "nwo": "circlefin/evm-xreserve-contracts",
+    "language": "solidity",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "circle-bbp"
+    ]
+  },
+  {
+    "nwo": "circlefin/noble-cctp",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "circle-bbp"
+    ]
+  },
+  {
+    "nwo": "circlefin/noble-fiattokenfactory",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "circle-bbp"
+    ]
+  },
+  {
+    "nwo": "circlefin/solana-cctp-contracts",
+    "language": "rust",
+    "codeql_databases": [
+      "rust",
+      "javascript"
+    ],
+    "programs": [
+      "circle-bbp"
+    ]
+  },
+  {
+    "nwo": "circlefin/stablecoin-evm",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "circle-bbp"
+    ]
+  },
+  {
+    "nwo": "circlefin/starknet-cctp",
+    "language": "cairo",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "circle-bbp"
+    ]
+  },
+  {
+    "nwo": "circlefin/sui-cctp",
+    "language": "move",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "circle-bbp"
+    ]
+  },
+  {
+    "nwo": "clickhouse/clickhouse",
+    "language": "cpp",
+    "codeql_databases": [
+      "javascript",
+      "python",
+      "go",
+      "java"
+    ],
+    "programs": [
+      "bc:clickhouse"
+    ]
+  },
+  {
+    "nwo": "cloudflare/workerd",
+    "language": "cpp",
+    "codeql_databases": [
+      "javascript",
+      "python",
+      "actions"
+    ],
+    "programs": [
+      "cloudflare"
+    ]
+  },
+  {
+    "nwo": "coinbase/cb-mpc",
+    "language": "cpp",
+    "codeql_databases": [
+      "cpp",
+      "go",
+      "python"
+    ],
+    "programs": [
+      "coinbase"
+    ]
+  },
+  {
+    "nwo": "cometbft/cometbft",
+    "language": "go",
+    "codeql_databases": [
+      "go",
+      "python"
+    ],
+    "programs": [
+      "cosmos"
+    ]
+  },
+  {
+    "nwo": "cometbft/cometbft-db",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "cosmos"
+    ]
+  },
+  {
+    "nwo": "contentauth/c2pa-js",
+    "language": "javascript",
+    "codeql_databases": [
+      "rust",
+      "javascript"
+    ],
+    "programs": [
+      "adobe"
+    ]
+  },
+  {
+    "nwo": "contentauth/c2pa-rs",
+    "language": "rust",
+    "codeql_databases": [
+      "rust"
+    ],
+    "programs": [
+      "adobe"
+    ]
+  },
+  {
+    "nwo": "cosmos/chain-registry",
+    "language": "python",
+    "codeql_databases": [
+      "python"
+    ],
+    "programs": [
+      "cosmos"
+    ]
+  },
+  {
+    "nwo": "cosmos/cosmos-sdk",
+    "language": "go",
+    "codeql_databases": [
+      "go",
+      "actions",
+      "java",
+      "python",
+      "cpp",
+      "javascript"
+    ],
+    "programs": [
+      "cosmos"
+    ]
+  },
+  {
+    "nwo": "cosmos/gaia",
+    "language": "go",
+    "codeql_databases": [
+      "go",
+      "python"
+    ],
+    "programs": [
+      "cosmos"
+    ]
+  },
+  {
+    "nwo": "cosmos/iavl",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "cosmos"
+    ]
+  },
+  {
+    "nwo": "cosmos/ibc-apps",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "cosmos"
+    ]
+  },
+  {
+    "nwo": "cosmos/ibc-go",
+    "language": "go",
+    "codeql_databases": [
+      "go",
+      "python"
+    ],
+    "programs": [
+      "cosmos"
+    ]
+  },
+  {
+    "nwo": "cosmos/ics23",
+    "language": "rust",
+    "codeql_databases": [
+      "go",
+      "javascript"
+    ],
+    "programs": [
+      "cosmos"
+    ]
+  },
+  {
+    "nwo": "cosmos/ledger-cosmos",
+    "language": "cpp",
+    "codeql_databases": [
+      "cpp"
+    ],
+    "programs": [
+      "cosmos"
+    ]
+  },
+  {
+    "nwo": "cosmos/relayer",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "cosmos"
+    ]
+  },
+  {
+    "nwo": "cosmos/solidity-ibc-eureka",
+    "language": "rust",
+    "codeql_databases": [
+      "actions",
+      "go"
+    ],
+    "programs": [
+      "cosmos"
+    ]
+  },
+  {
+    "nwo": "cosmwasm/cosmwasm",
+    "language": "rust",
+    "codeql_databases": [
+      "python",
+      "go"
+    ],
+    "programs": [
+      "cosmos"
+    ]
+  },
+  {
+    "nwo": "cosmwasm/wasmd",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "cosmos"
+    ]
+  },
+  {
+    "nwo": "cosmwasm/wasmvm",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "cosmos"
+    ]
+  },
+  {
+    "nwo": "curl/curl",
+    "language": "cpp",
+    "codeql_databases": [
+      "cpp",
+      "python",
+      "actions",
+      "javascript"
+    ],
+    "programs": [
+      "ibb",
+      "curl"
+    ]
+  },
+  {
+    "nwo": "dependabot/dependabot-core",
+    "language": "ruby",
+    "codeql_databases": [
+      "go",
+      "ruby",
+      "javascript",
+      "python"
+    ],
+    "programs": [
+      "github"
+    ]
+  },
+  {
+    "nwo": "discourse/discourse",
+    "language": "ruby",
+    "codeql_databases": [
+      "ruby",
+      "javascript",
+      "actions"
+    ],
+    "programs": [
+      "discourse"
+    ]
+  },
+  {
+    "nwo": "dopplerhq/cli",
+    "language": "go",
+    "codeql_databases": [
+      "go",
+      "actions"
+    ],
+    "programs": [
+      "doppler"
+    ]
+  },
+  {
+    "nwo": "droe/sslsplit",
+    "language": "cpp",
+    "codeql_databases": [
+      "python",
+      "cpp"
+    ],
+    "programs": [
+      "security"
+    ]
+  },
+  {
+    "nwo": "dynatrace/backstage-plugin",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript",
+      "actions"
+    ],
+    "programs": [
+      "dynatrace"
+    ]
+  },
+  {
+    "nwo": "dynatrace/dynatrace-bootstrapper",
+    "language": "go",
+    "codeql_databases": [
+      "go",
+      "actions"
+    ],
+    "programs": [
+      "dynatrace"
+    ]
+  },
+  {
+    "nwo": "dynatrace/dynatrace-configuration-as-code",
+    "language": "go",
+    "codeql_databases": [
+      "go",
+      "actions"
+    ],
+    "programs": [
+      "dynatrace"
+    ]
+  },
+  {
+    "nwo": "dynatrace/dynatrace-configuration-as-code-core",
+    "language": "go",
+    "codeql_databases": [
+      "go",
+      "actions"
+    ],
+    "programs": [
+      "dynatrace"
+    ]
+  },
+  {
+    "nwo": "dynatrace/dynatrace-log-security-rules-checker",
+    "language": "python",
+    "codeql_databases": [
+      "python"
+    ],
+    "programs": [
+      "dynatrace"
+    ]
+  },
+  {
+    "nwo": "dynatrace/dynatrace-oneagent-ansible",
+    "language": "python",
+    "codeql_databases": [
+      "python",
+      "actions"
+    ],
+    "programs": [
+      "dynatrace"
+    ]
+  },
+  {
+    "nwo": "dynatrace/dynatrace-operator",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "dynatrace"
+    ]
+  },
+  {
+    "nwo": "dynatrace/dynatrace-otel-collector",
+    "language": "go",
+    "codeql_databases": [
+      "go",
+      "actions"
+    ],
+    "programs": [
+      "dynatrace"
+    ]
+  },
+  {
+    "nwo": "dynatrace/oneagent-sdk-for-java",
+    "language": "java",
+    "codeql_databases": [
+      "java"
+    ],
+    "programs": [
+      "dynatrace"
+    ]
+  },
+  {
+    "nwo": "dynatrace/swift-mobile-sdk",
+    "language": "swift",
+    "codeql_databases": [
+      "swift"
+    ],
+    "programs": [
+      "dynatrace"
+    ]
+  },
+  {
+    "nwo": "elastic/apm-server",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "elastic"
+    ]
+  },
+  {
+    "nwo": "elastic/beats",
+    "language": "go",
+    "codeql_databases": [
+      "python",
+      "java",
+      "javascript"
+    ],
+    "programs": [
+      "elastic"
+    ]
+  },
+  {
+    "nwo": "elastic/elastic-agent",
+    "language": "go",
+    "codeql_databases": [
+      "python",
+      "go"
+    ],
+    "programs": [
+      "elastic"
+    ]
+  },
+  {
+    "nwo": "elastic/elasticsearch",
+    "language": "java",
+    "codeql_databases": [
+      "javascript",
+      "python"
+    ],
+    "programs": [
+      "elastic"
+    ]
+  },
+  {
+    "nwo": "elastic/fleet-server",
+    "language": "go",
+    "codeql_databases": [
+      "go",
+      "python"
+    ],
+    "programs": [
+      "elastic"
+    ]
+  },
+  {
+    "nwo": "elastic/kibana",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript",
+      "python",
+      "java"
+    ],
+    "programs": [
+      "elastic"
+    ]
+  },
+  {
+    "nwo": "elastic/logstash",
+    "language": "java",
+    "codeql_databases": [
+      "java",
+      "python",
+      "ruby",
+      "go"
+    ],
+    "programs": [
+      "elastic"
+    ]
+  },
+  {
+    "nwo": "elastic/package-registry",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "elastic"
+    ]
+  },
+  {
+    "nwo": "electron/electron",
+    "language": "cpp",
+    "codeql_databases": [
+      "javascript",
+      "python"
+    ],
+    "programs": [
+      "ibb"
+    ]
+  },
+  {
+    "nwo": "electroneum/electroneum-sc",
+    "language": "go",
+    "codeql_databases": [
+      "cpp",
+      "go"
+    ],
+    "programs": [
+      "bc:smartchain-mbb-og"
+    ]
+  },
+  {
+    "nwo": "evergreen-ci/evergreen",
+    "language": "go",
+    "codeql_databases": [
+      "go",
+      "javascript",
+      "python"
+    ],
+    "programs": [
+      "mongodb"
+    ]
+  },
+  {
+    "nwo": "fireblocks/mpc-lib",
+    "language": "cpp",
+    "codeql_databases": [
+      "cpp"
+    ],
+    "programs": [
+      "bc:fireblocks-mbb-og2"
+    ]
+  },
+  {
+    "nwo": "firefox-devtools/profiler",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "mozilla"
+    ]
+  },
+  {
+    "nwo": "freedomofpress/securedrop",
+    "language": "python",
+    "codeql_databases": [
+      "javascript",
+      "python"
+    ],
+    "programs": [
+      "bc:freedomofpress"
+    ]
+  },
+  {
+    "nwo": "freedomofpress/securedrop-client",
+    "language": "python",
+    "codeql_databases": [
+      "python"
+    ],
+    "programs": [
+      "bc:freedomofpress"
+    ]
+  },
+  {
+    "nwo": "freedomofpress/securedrop-workstation",
+    "language": "python",
+    "codeql_databases": [
+      "python"
+    ],
+    "programs": [
+      "bc:freedomofpress"
+    ]
+  },
+  {
+    "nwo": "golang/glog",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "hacker0x01/react-datepicker",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "security"
+    ]
+  },
+  {
+    "nwo": "immutable/ts-immutable-sdk",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript",
+      "actions"
+    ],
+    "programs": [
+      "bc:immutable"
+    ]
+  },
+  {
+    "nwo": "iqlusioninc/crates",
+    "language": "rust",
+    "codeql_databases": [
+      "rust"
+    ],
+    "programs": [
+      "cosmos"
+    ]
+  },
+  {
+    "nwo": "iqlusioninc/yubihsm.rs",
+    "language": "rust",
+    "codeql_databases": [
+      "rust"
+    ],
+    "programs": [
+      "cosmos"
+    ]
+  },
+  {
+    "nwo": "jitsi/jitsi",
+    "language": "java",
+    "codeql_databases": [
+      "java"
+    ],
+    "programs": [
+      "8x8-bounty"
+    ]
+  },
+  {
+    "nwo": "jitsi/jitsi-meet",
+    "language": "javascript",
+    "codeql_databases": [
+      "java",
+      "javascript"
+    ],
+    "programs": [
+      "8x8-bounty"
+    ]
+  },
+  {
+    "nwo": "kubernetes-client/gen",
+    "language": "shell",
+    "codeql_databases": [
+      "python"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes-client/java",
+    "language": "java",
+    "codeql_databases": [
+      "java"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes-client/python",
+    "language": "python",
+    "codeql_databases": [
+      "python"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/api",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/apiextensions-apiserver",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/apimachinery",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/apiserver",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/autoscaler",
+    "language": "go",
+    "codeql_databases": [
+      "python",
+      "ruby",
+      "javascript"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/cli-runtime",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/client-go",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/cloud-provider",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/cloud-provider-aws",
+    "language": "go",
+    "codeql_databases": [
+      "go",
+      "python"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/cloud-provider-azure",
+    "language": "go",
+    "codeql_databases": [
+      "go",
+      "python",
+      "javascript"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/cloud-provider-gcp",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/cloud-provider-openstack",
+    "language": "go",
+    "codeql_databases": [
+      "go",
+      "python"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/cloud-provider-vsphere",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/cluster-bootstrap",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/code-generator",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/community",
+    "language": "jupyter notebook",
+    "codeql_databases": [
+      "python",
+      "go",
+      "cpp",
+      "javascript"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/component-base",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/cri-api",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/csi-translation-lib",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/dns",
+    "language": "go",
+    "codeql_databases": [
+      "python",
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/enhancements",
+    "language": "go",
+    "codeql_databases": [
+      "go",
+      "python"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/examples",
+    "language": "shell",
+    "codeql_databases": [
+      "python",
+      "go",
+      "java",
+      "javascript"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/gengo",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/git-sync",
+    "language": "shell",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/k8s.io",
+    "language": "hcl",
+    "codeql_databases": [
+      "go",
+      "python"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/klog",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/kompose",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/kops",
+    "language": "go",
+    "codeql_databases": [
+      "python",
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/kube-aggregator",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/kube-controller-manager",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/kube-openapi",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/kube-proxy",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/kube-scheduler",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/kube-state-metrics",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/kubeadm",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/kubectl",
+    "language": "go",
+    "codeql_databases": [
+      "go",
+      "python",
+      "javascript"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/kubelet",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/kubernetes",
+    "language": "go",
+    "codeql_databases": [
+      "python",
+      "cpp",
+      "go",
+      "javascript"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/legacy-cloud-providers",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/metrics",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/minikube",
+    "language": "go",
+    "codeql_databases": [
+      "go",
+      "javascript",
+      "cpp"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/node-problem-detector",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/org",
+    "language": "go",
+    "codeql_databases": [
+      "go",
+      "python"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/perf-tests",
+    "language": "go",
+    "codeql_databases": [
+      "python",
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/release",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/repo-infra",
+    "language": "starlark",
+    "codeql_databases": [
+      "python",
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/sample-apiserver",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/sample-cli-plugin",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/sample-controller",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/test-infra",
+    "language": "go",
+    "codeql_databases": [
+      "python",
+      "go",
+      "javascript",
+      "cpp"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/utils",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "kubernetes/website",
+    "language": "html",
+    "codeql_databases": [
+      "python",
+      "go",
+      "javascript"
+    ],
+    "programs": [
+      "kubernetes"
+    ]
+  },
+  {
+    "nwo": "launchdarkly/react-client-sdk",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "launchdarkly"
+    ]
+  },
+  {
+    "nwo": "libuv/libuv",
+    "language": "cpp",
+    "codeql_databases": [
+      "cpp",
+      "javascript"
+    ],
+    "programs": [
+      "ibb"
+    ]
+  },
+  {
+    "nwo": "lightsparkdev/go-sdk",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "lightspark_bbp"
+    ]
+  },
+  {
+    "nwo": "lightsparkdev/lightspark-rs",
+    "language": "rust",
+    "codeql_databases": [
+      "rust"
+    ],
+    "programs": [
+      "lightspark_bbp"
+    ]
+  },
+  {
+    "nwo": "lightsparkdev/python-sdk",
+    "language": "python",
+    "codeql_databases": [
+      "python"
+    ],
+    "programs": [
+      "lightspark_bbp"
+    ]
+  },
+  {
+    "nwo": "matomo-org/matomo",
+    "language": "php",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "matomo"
+    ]
+  },
+  {
+    "nwo": "mattermost/mattermost-plugin-ai",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "bc:mattermost-mbb-public"
+    ]
+  },
+  {
+    "nwo": "mattermost/mattermost-plugin-boards",
+    "language": "javascript",
+    "codeql_databases": [
+      "go",
+      "javascript"
+    ],
+    "programs": [
+      "bc:mattermost-mbb-public"
+    ]
+  },
+  {
+    "nwo": "mattermost/mattermost-plugin-calls",
+    "language": "javascript",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "bc:mattermost-mbb-public"
+    ]
+  },
+  {
+    "nwo": "mattermost/mattermost-plugin-github",
+    "language": "go",
+    "codeql_databases": [
+      "go",
+      "javascript"
+    ],
+    "programs": [
+      "bc:mattermost-mbb-public"
+    ]
+  },
+  {
+    "nwo": "mattermost/mattermost-plugin-gitlab",
+    "language": "javascript",
+    "codeql_databases": [
+      "go",
+      "javascript"
+    ],
+    "programs": [
+      "bc:mattermost-mbb-public"
+    ]
+  },
+  {
+    "nwo": "mattermost/mattermost-plugin-jira",
+    "language": "go",
+    "codeql_databases": [
+      "go",
+      "javascript"
+    ],
+    "programs": [
+      "bc:mattermost-mbb-public"
+    ]
+  },
+  {
+    "nwo": "mattermost/mattermost-plugin-mscalendar",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "bc:mattermost-mbb-public"
+    ]
+  },
+  {
+    "nwo": "mattermost/mattermost-plugin-msteams",
+    "language": "go",
+    "codeql_databases": [
+      "go",
+      "javascript",
+      "actions"
+    ],
+    "programs": [
+      "bc:mattermost-mbb-public"
+    ]
+  },
+  {
+    "nwo": "mattermost/mattermost-plugin-playbooks",
+    "language": "javascript",
+    "codeql_databases": [
+      "go",
+      "javascript"
+    ],
+    "programs": [
+      "bc:mattermost-mbb-public"
+    ]
+  },
+  {
+    "nwo": "mattermost/mattermost-plugin-zoom",
+    "language": "go",
+    "codeql_databases": [
+      "go",
+      "javascript"
+    ],
+    "programs": [
+      "bc:mattermost-mbb-public"
+    ]
+  },
+  {
+    "nwo": "mdn/mdn",
+    "language": null,
+    "codeql_databases": [
+      "actions"
+    ],
+    "programs": [
+      "mozilla"
+    ]
+  },
+  {
+    "nwo": "metamask/message-signing-snap",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "metamask"
+    ]
+  },
+  {
+    "nwo": "metamask/metamask-extension",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "metamask"
+    ]
+  },
+  {
+    "nwo": "metamask/phishing-warning",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "metamask"
+    ]
+  },
+  {
+    "nwo": "metamask/snaps",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript",
+      "actions"
+    ],
+    "programs": [
+      "metamask"
+    ]
+  },
+  {
+    "nwo": "metamask/snaps-directory",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "metamask"
+    ]
+  },
+  {
+    "nwo": "mongodb-js/mongodb-mcp-server",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript",
+      "actions"
+    ],
+    "programs": [
+      "mongodb"
+    ]
+  },
+  {
+    "nwo": "mozilla-conduit/phabricator",
+    "language": "php",
+    "codeql_databases": [
+      "python",
+      "javascript"
+    ],
+    "programs": [
+      "mozilla"
+    ]
+  },
+  {
+    "nwo": "mozilla-mobile/mozilla-vpn-client",
+    "language": "cpp",
+    "codeql_databases": [
+      "java",
+      "python",
+      "go",
+      "javascript"
+    ],
+    "programs": [
+      "mozilla"
+    ]
+  },
+  {
+    "nwo": "mozilla-releng/balrog",
+    "language": "python",
+    "codeql_databases": [
+      "python"
+    ],
+    "programs": [
+      "mozilla"
+    ]
+  },
+  {
+    "nwo": "mozilla-services/merino-py",
+    "language": "python",
+    "codeql_databases": [
+      "python"
+    ],
+    "programs": [
+      "mozilla"
+    ]
+  },
+  {
+    "nwo": "mozilla-services/socorro",
+    "language": "python",
+    "codeql_databases": [
+      "python"
+    ],
+    "programs": [
+      "mozilla"
+    ]
+  },
+  {
+    "nwo": "mozilla-services/syncstorage-rs",
+    "language": "rust",
+    "codeql_databases": [
+      "python"
+    ],
+    "programs": [
+      "mozilla"
+    ]
+  },
+  {
+    "nwo": "mozilla-services/tokenlib",
+    "language": "python",
+    "codeql_databases": [
+      "python"
+    ],
+    "programs": [
+      "mozilla"
+    ]
+  },
+  {
+    "nwo": "mozilla/addons-server",
+    "language": "python",
+    "codeql_databases": [
+      "python",
+      "javascript"
+    ],
+    "programs": [
+      "mozilla"
+    ]
+  },
+  {
+    "nwo": "mozilla/bedrock",
+    "language": "html",
+    "codeql_databases": [
+      "python",
+      "javascript"
+    ],
+    "programs": [
+      "mozilla"
+    ]
+  },
+  {
+    "nwo": "mozilla/blurts-server",
+    "language": "fluent",
+    "codeql_databases": [
+      "javascript",
+      "actions"
+    ],
+    "programs": [
+      "mozilla"
+    ]
+  },
+  {
+    "nwo": "mozilla/fx-private-relay",
+    "language": "python",
+    "codeql_databases": [
+      "javascript",
+      "python"
+    ],
+    "programs": [
+      "mozilla"
+    ]
+  },
+  {
+    "nwo": "mozilla/fxa",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript",
+      "python"
+    ],
+    "programs": [
+      "mozilla"
+    ]
+  },
+  {
+    "nwo": "mozilla/kitsune",
+    "language": "python",
+    "codeql_databases": [
+      "javascript",
+      "python"
+    ],
+    "programs": [
+      "mozilla"
+    ]
+  },
+  {
+    "nwo": "mozilla/pontoon",
+    "language": "python",
+    "codeql_databases": [
+      "python",
+      "javascript"
+    ],
+    "programs": [
+      "mozilla"
+    ]
+  },
+  {
+    "nwo": "mozilla/treeherder",
+    "language": "python",
+    "codeql_databases": [
+      "python",
+      "javascript"
+    ],
+    "programs": [
+      "mozilla"
+    ]
+  },
+  {
+    "nwo": "mozmeao/springfield",
+    "language": "python",
+    "codeql_databases": [
+      "python",
+      "javascript"
+    ],
+    "programs": [
+      "mozilla"
+    ]
+  },
+  {
+    "nwo": "netflix/atlas",
+    "language": "scala",
+    "codeql_databases": [
+      "java"
+    ],
+    "programs": [
+      "netflix"
+    ]
+  },
+  {
+    "nwo": "netflix/spectator",
+    "language": "java",
+    "codeql_databases": [
+      "java"
+    ],
+    "programs": [
+      "netflix"
+    ]
+  },
+  {
+    "nwo": "netflix/zuul",
+    "language": "java",
+    "codeql_databases": [
+      "java"
+    ],
+    "programs": [
+      "netflix"
+    ]
+  },
+  {
+    "nwo": "nextcloud/activity",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/approval",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/appstore",
+    "language": "python",
+    "codeql_databases": [
+      "python"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/bruteforcesettings",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/calendar",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/circles",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/client",
+    "language": "cpp",
+    "codeql_databases": [
+      "python",
+      "javascript",
+      "ruby",
+      "cpp",
+      "swift"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/contacts",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/deck",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/documentation",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript",
+      "python"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/external",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/firstrunwizard",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/fulltextsearch",
+    "language": "php",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/groupfolders",
+    "language": "php",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/guests",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/logreader",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/mail",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/notes",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/notifications",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/password_policy",
+    "language": "php",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/photos",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/privacy",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/recommendations",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/richdocuments",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/server",
+    "language": "php",
+    "codeql_databases": [
+      "javascript",
+      "actions"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/serverinfo",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/sharepoint",
+    "language": "php",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/socialsharing",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/spreed",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript",
+      "python"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/tables",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/text",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/twofactor_totp",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nextcloud/viewer",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "nitrojs/nitro",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "vercel-open-source"
+    ]
+  },
+  {
+    "nwo": "nodejs/node",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript",
+      "python",
+      "cpp"
+    ],
+    "programs": [
+      "ibb",
+      "nodejs"
+    ]
+  },
+  {
+    "nwo": "nuxt/nuxt",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript",
+      "actions"
+    ],
+    "programs": [
+      "vercel-open-source"
+    ]
+  },
+  {
+    "nwo": "okx/wallet-core",
+    "language": "solidity",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "okg"
+    ]
+  },
+  {
+    "nwo": "onlyoffice/onlyoffice-nextcloud",
+    "language": "php",
+    "codeql_databases": [
+      "javascript",
+      "actions"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "openai/codex",
+    "language": "rust",
+    "codeql_databases": [
+      "javascript",
+      "rust",
+      "python"
+    ],
+    "programs": [
+      "bc:openai"
+    ]
+  },
+  {
+    "nwo": "openssl/openssl",
+    "language": "cpp",
+    "codeql_databases": [
+      "python",
+      "ruby",
+      "javascript"
+    ],
+    "programs": [
+      "ibb"
+    ]
+  },
+  {
+    "nwo": "pixiv/charcoal",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript",
+      "actions"
+    ],
+    "programs": [
+      "pixiv"
+    ]
+  },
+  {
+    "nwo": "plaid/plaid-link-android",
+    "language": "kotlin",
+    "codeql_databases": [
+      "java"
+    ],
+    "programs": [
+      "plaid"
+    ]
+  },
+  {
+    "nwo": "plaid/plaid-link-ios",
+    "language": "objc",
+    "codeql_databases": [
+      "ruby"
+    ],
+    "programs": [
+      "plaid"
+    ]
+  },
+  {
+    "nwo": "plaid/plaid-ruby",
+    "language": "ruby",
+    "codeql_databases": [
+      "ruby",
+      "javascript"
+    ],
+    "programs": [
+      "plaid"
+    ]
+  },
+  {
+    "nwo": "plaid/react-native-plaid-link-sdk",
+    "language": "javascript",
+    "codeql_databases": [
+      "ruby",
+      "javascript",
+      "actions"
+    ],
+    "programs": [
+      "plaid"
+    ]
+  },
+  {
+    "nwo": "plaid/react-plaid-link",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "plaid"
+    ]
+  },
+  {
+    "nwo": "projectopensea/seaport",
+    "language": "solidity",
+    "codeql_databases": [
+      "javascript",
+      "actions"
+    ],
+    "programs": [
+      "bc:opensea"
+    ]
+  },
+  {
+    "nwo": "rack/rack",
+    "language": "ruby",
+    "codeql_databases": [
+      "ruby",
+      "javascript"
+    ],
+    "programs": [
+      "ibb"
+    ]
+  },
+  {
+    "nwo": "rails/rails",
+    "language": "ruby",
+    "codeql_databases": [
+      "javascript",
+      "ruby"
+    ],
+    "programs": [
+      "rails"
+    ]
+  },
+  {
+    "nwo": "roundcube/roundcubemail",
+    "language": "php",
+    "codeql_databases": [
+      "javascript",
+      "python"
+    ],
+    "programs": [
+      "nextcloud"
+    ]
+  },
+  {
+    "nwo": "ruby/ruby",
+    "language": "ruby",
+    "codeql_databases": [
+      "cpp",
+      "ruby",
+      "javascript",
+      "python"
+    ],
+    "programs": [
+      "ruby"
+    ]
+  },
+  {
+    "nwo": "rubygems/rubygems",
+    "language": "ruby",
+    "codeql_databases": [
+      "ruby"
+    ],
+    "programs": [
+      "ibb",
+      "rubygems"
+    ]
+  },
+  {
+    "nwo": "rust-lang/rust",
+    "language": "rust",
+    "codeql_databases": [
+      "python",
+      "javascript",
+      "cpp"
+    ],
+    "programs": [
+      "ibb"
+    ]
+  },
+  {
+    "nwo": "skip-mev/go-fast-contracts",
+    "language": "solidity",
+    "codeql_databases": [
+      "rust",
+      "javascript",
+      "python"
+    ],
+    "programs": [
+      "cosmos"
+    ]
+  },
+  {
+    "nwo": "slackhq/nebula",
+    "language": "go",
+    "codeql_databases": [
+      "go",
+      "python"
+    ],
+    "programs": [
+      "slack"
+    ]
+  },
+  {
+    "nwo": "smartcontractkit/chainlink",
+    "language": "go",
+    "codeql_databases": [
+      "go",
+      "actions",
+      "javascript",
+      "python"
+    ],
+    "programs": [
+      "chainlink"
+    ]
+  },
+  {
+    "nwo": "smartcontractkit/chainlink-evm",
+    "language": "solidity",
+    "codeql_databases": [
+      "go",
+      "javascript",
+      "actions",
+      "python"
+    ],
+    "programs": [
+      "chainlink"
+    ]
+  },
+  {
+    "nwo": "smartcontractkit/chainlink-solana",
+    "language": "go",
+    "codeql_databases": [
+      "go",
+      "javascript",
+      "actions"
+    ],
+    "programs": [
+      "chainlink"
+    ]
+  },
+  {
+    "nwo": "smartcontractkit/external-adapters-js",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript",
+      "actions"
+    ],
+    "programs": [
+      "chainlink"
+    ]
+  },
+  {
+    "nwo": "smartcontractkit/staking-v0.1",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript",
+      "actions"
+    ],
+    "programs": [
+      "chainlink"
+    ]
+  },
+  {
+    "nwo": "spiffe/spire",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "ibb"
+    ]
+  },
+  {
+    "nwo": "spotify/android-sdk",
+    "language": "html",
+    "codeql_databases": [
+      "java"
+    ],
+    "programs": [
+      "spotify"
+    ]
+  },
+  {
+    "nwo": "spotify/ios-sdk",
+    "language": "objc",
+    "codeql_databases": [
+      "ruby"
+    ],
+    "programs": [
+      "spotify"
+    ]
+  },
+  {
+    "nwo": "square/okhttp",
+    "language": "kotlin",
+    "codeql_databases": [
+      "java",
+      "actions",
+      "javascript"
+    ],
+    "programs": [
+      "bc:blockopensource"
+    ]
+  },
+  {
+    "nwo": "square/okio",
+    "language": "kotlin",
+    "codeql_databases": [
+      "java",
+      "actions"
+    ],
+    "programs": [
+      "bc:blockopensource"
+    ]
+  },
+  {
+    "nwo": "square/wire",
+    "language": "kotlin",
+    "codeql_databases": [
+      "swift",
+      "java",
+      "javascript",
+      "ruby",
+      "actions"
+    ],
+    "programs": [
+      "bc:blockopensource"
+    ]
+  },
+  {
+    "nwo": "strangelove-ventures/horcrux",
+    "language": "go",
+    "codeql_databases": [
+      "go"
+    ],
+    "programs": [
+      "cosmos"
+    ]
+  },
+  {
+    "nwo": "stripe-samples/checkout-one-time-payments",
+    "language": "css",
+    "codeql_databases": [
+      "csharp",
+      "python",
+      "go",
+      "java",
+      "javascript",
+      "ruby"
+    ],
+    "programs": [
+      "stripe"
+    ]
+  },
+  {
+    "nwo": "stripe-samples/checkout-single-subscription",
+    "language": "css",
+    "codeql_databases": [
+      "java",
+      "javascript",
+      "ruby",
+      "csharp",
+      "python",
+      "go"
+    ],
+    "programs": [
+      "stripe"
+    ]
+  },
+  {
+    "nwo": "stripe-samples/subscription-use-cases",
+    "language": "javascript",
+    "codeql_databases": [
+      "java",
+      "python",
+      "javascript"
+    ],
+    "programs": [
+      "stripe"
+    ]
+  },
+  {
+    "nwo": "stripe/elements-examples",
+    "language": "html",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "stripe"
+    ]
+  },
+  {
+    "nwo": "stripe/stripe-connect-rocketrides",
+    "language": "swift",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "stripe"
+    ]
+  },
+  {
+    "nwo": "stripe/stripe-terminal-js-demo",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "stripe"
+    ]
+  },
+  {
+    "nwo": "sveltejs/svelte",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript",
+      "actions"
+    ],
+    "programs": [
+      "vercel-open-source"
+    ]
+  },
+  {
+    "nwo": "taskcluster/taskcluster",
+    "language": "javascript",
+    "codeql_databases": [
+      "go",
+      "javascript",
+      "python"
+    ],
+    "programs": [
+      "mozilla"
+    ]
+  },
+  {
+    "nwo": "tronprotocol/java-tron",
+    "language": "java",
+    "codeql_databases": [
+      "java"
+    ],
+    "programs": [
+      "tron_dao"
+    ]
+  },
+  {
+    "nwo": "trustwallet/wallet-core",
+    "language": "cpp",
+    "codeql_databases": [
+      "java",
+      "python",
+      "javascript",
+      "ruby"
+    ],
+    "programs": [
+      "bc:binance"
+    ]
+  },
+  {
+    "nwo": "vercel-labs/agent-skills",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "vercel-open-source"
+    ]
+  },
+  {
+    "nwo": "vercel-labs/skills",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "vercel-open-source"
+    ]
+  },
+  {
+    "nwo": "vercel/ai",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "vercel-open-source"
+    ]
+  },
+  {
+    "nwo": "vercel/async-sema",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "vercel-open-source"
+    ]
+  },
+  {
+    "nwo": "vercel/flags",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "vercel-open-source"
+    ]
+  },
+  {
+    "nwo": "vercel/ms",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "vercel-open-source"
+    ]
+  },
+  {
+    "nwo": "vercel/next.js",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript",
+      "actions"
+    ],
+    "programs": [
+      "vercel-open-source"
+    ]
+  },
+  {
+    "nwo": "vercel/swr",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript"
+    ],
+    "programs": [
+      "vercel-open-source"
+    ]
+  },
+  {
+    "nwo": "vercel/turborepo",
+    "language": "rust",
+    "codeql_databases": [
+      "rust",
+      "javascript",
+      "go"
+    ],
+    "programs": [
+      "vercel-open-source"
+    ]
+  },
+  {
+    "nwo": "vercel/vercel",
+    "language": "javascript",
+    "codeql_databases": [
+      "python",
+      "go",
+      "javascript"
+    ],
+    "programs": [
+      "vercel-open-source"
+    ]
+  },
+  {
+    "nwo": "vercel/workflow",
+    "language": "javascript",
+    "codeql_databases": [
+      "rust",
+      "javascript"
+    ],
+    "programs": [
+      "vercel-open-source"
+    ]
+  },
+  {
+    "nwo": "web3auth/web3auth-web",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript",
+      "actions"
+    ],
+    "programs": [
+      "metamask"
+    ]
+  },
+  {
+    "nwo": "wordpress/gutenberg",
+    "language": "javascript",
+    "codeql_databases": [
+      "javascript",
+      "java",
+      "ruby"
+    ],
+    "programs": [
+      "wordpress"
+    ]
+  }
+]

@@ -419,6 +419,9 @@ class LLMAnalyzer:
         if not self.model:
             raise RuntimeError("LLM model not initialized. Call init_llm_client() first.")
         
+        MAX_ROUNDS = 20  # Hard limit to prevent infinite loops
+        MAX_CONSECUTIVE_FAILURES = 3  # Stop after N consecutive "not found" tool results
+
         got_answer = False
         db_path_clean = db_path.replace(" ", "")
         all_functions = functions
@@ -427,9 +430,23 @@ class LLMAnalyzer:
         messages.append({"role": "user", "content": prompt})
 
         amount_of_tools = 0
+        round_number = 0
+        consecutive_failures = 0  # Track consecutive "not found" tool results
         final_content = ""
 
         while not got_answer:
+            round_number += 1
+
+            # Hard limit: force exit after MAX_ROUNDS to prevent infinite loops
+            if round_number > MAX_ROUNDS:
+                logger.warning("    [Round %d] Hit max rounds limit (%d). Forcing 'needs more data' verdict.",
+                              round_number, MAX_ROUNDS)
+                final_content = (
+                    "7331 - Exceeded maximum analysis rounds. "
+                    "Could not resolve all code references within the round limit."
+                )
+                break
+
             # Send the current messages + tools to the LLM endpoint
             try:
                 # Build completion kwargs - Bedrock Claude doesn't allow both temperature and top_p
@@ -479,11 +496,30 @@ class LLMAnalyzer:
             final_content = content_obj.content or ""
             tool_calls = content_obj.tool_calls
 
+            # --- Verbose output: show LLM reasoning ---
+            if final_content:
+                # Truncate very long responses for display but show the key parts
+                display_content = final_content
+                if len(display_content) > 2000:
+                    display_content = display_content[:2000] + "\n    ... [truncated]"
+                logger.info("    [Round %d] LLM reasoning:", round_number)
+                for line in display_content.split("\n"):
+                    logger.info("      %s", line)
+
+            # Log token usage if available
+            if hasattr(response, 'usage') and response.usage:
+                usage = response.usage
+                logger.info("    [Round %d] Tokens — input: %s, output: %s",
+                           round_number,
+                           getattr(usage, 'prompt_tokens', '?'),
+                           getattr(usage, 'completion_tokens', '?'))
+
             if not tool_calls:
                 # Check if we have a recognized status code
                 if final_content and any(code in final_content for code in ["1337", "1007", "7331", "3713"]):
                     got_answer = True
                 else:
+                    logger.info("    [Round %d] No status code found, prompting LLM to follow instructions...", round_number)
                     messages.append({
                         "role": "system",
                         "content": "Please follow all the instructions!"
@@ -505,6 +541,10 @@ class LLMAnalyzer:
                         tc.function.arguments = json.dumps(tool_args)
 
                     response_msg = ""
+
+                    # --- Verbose output: show tool call ---
+                    tool_args_display = ", ".join(f"{k}={v}" for k, v in tool_args.items() if k != "_")
+                    logger.info("    [Round %d] Tool call: %s(%s)", round_number, tool_function_name, tool_args_display)
 
                     # Evaluate which tool to call
                     if tool_function_name == 'get_function_code' and "function_name" in tool_args:
@@ -574,12 +614,39 @@ class LLMAnalyzer:
                             "Try again."
                         )
 
+                    # --- Verbose output: show tool response summary ---
+                    response_lines = response_msg.split("\n") if response_msg else ["(empty)"]
+                    preview = response_lines[0][:120]
+                    if len(response_lines) > 1:
+                        preview += f"  ... ({len(response_lines)} lines)"
+                    logger.info("    [Round %d] Tool result: %s", round_number, preview)
+
+                    # Track consecutive failures (tool returned "not found" / error)
+                    if response_msg and ("not found" in response_msg.lower() or "no matching tool" in response_msg.lower()):
+                        consecutive_failures += 1
+                    else:
+                        consecutive_failures = 0
+
                     messages.append({
                         "role": "tool",
                         "tool_call_id": tool_call_id,
                         "name": tool_function_name,
                         "content": response_msg
                     })
+
+                # Break out if stuck in a loop of failed tool calls
+                if consecutive_failures >= MAX_CONSECUTIVE_FAILURES:
+                    logger.warning("    [Round %d] %d consecutive failed tool calls. Forcing verdict.",
+                                  round_number, consecutive_failures)
+                    messages.append({
+                        "role": "system",
+                        "content": (
+                            "STOP calling tools — the data you're looking for is not available in this database. "
+                            "You must give your best answer NOW using only the code you already have. "
+                            "Return a status code immediately."
+                        )
+                    })
+                    consecutive_failures = 0  # Reset so we give the LLM one more chance to answer
 
                 messages += arg_messages
 

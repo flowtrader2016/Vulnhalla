@@ -1,0 +1,8 @@
+This analysis detects scanf-like calls whose return value is ignored.
+1. Is the return value captured or checked on all paths?
+2. How many items should be parsed from the format string?
+3. Are destination variables used after the call without guaranteed initialization?
+4. Is the input source trusted or attacker-controlled?
+Use the tools to confirm whether parse failure can propagate into unsafe behavior.
+If the return value is effectively checked or failures are safely handled, there is no issue.
+Only flag if unchecked parse failures can lead to incorrect logic or memory misuse.

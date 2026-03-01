@@ -1,0 +1,8 @@
+This analysis detects pointer offset usage before negative/bounds validation.
+1. Where is the pointer dereference or offset access performed?
+2. Where is the corresponding offset range check, and does it dominate all paths?
+3. Can untrusted or unchecked offset values reach the access site first?
+4. Could negative or oversized offsets trigger out-of-bounds behavior?
+Use the tools to trace full control flow from input to access and check.
+If all reachable paths validate offset before access, there is no issue.
+Only flag if at least one reachable path uses offset before validation.

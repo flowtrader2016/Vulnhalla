@@ -1,0 +1,138 @@
+{
+  "generated_at_utc": "2026-02-28T15:25:39Z",
+  "codeql_cli_version": "2.24.1",
+  "resolved_pack": "codeql/cpp-queries@1.5.11",
+  "query_count": 14,
+  "entries": [
+    {
+      "id": "cpp/overflow-destination",
+      "name": "Copy function using source size",
+      "pack_version": "1.5.11",
+      "resolved_source_path": "/Users/nicksimpson/.codeql/packages/codeql/cpp-queries/1.5.11/Critical/OverflowDestination.ql",
+      "destination_path": "data/queries/cpp/issues/Copy function using source size.ql",
+      "source_sha256": "77bcfce78f9a511d5670147b1f8102a269f06abc329ea56978f5898f92bf863f",
+      "destination_sha256": "77bcfce78f9a511d5670147b1f8102a269f06abc329ea56978f5898f92bf863f"
+    },
+    {
+      "id": "cpp/dangerous-use-of-transformation-after-operation",
+      "name": "Dangerous use of transformation after operation",
+      "pack_version": "1.5.11",
+      "resolved_source_path": "/Users/nicksimpson/.codeql/packages/codeql/cpp-queries/1.5.11/experimental/Security/CWE/CWE-190/DangerousUseOfTransformationAfterOperation.ql",
+      "destination_path": "data/queries/cpp/issues/Dangerous use of transformation after operation.ql",
+      "source_sha256": "83ebbfa6a6fea98a6b5de9cc81a29694c2c34f1e0fe91415fe8a65f9a972ac48",
+      "destination_sha256": "83ebbfa6a6fea98a6b5de9cc81a29694c2c34f1e0fe91415fe8a65f9a972ac48"
+    },
+    {
+      "id": "cpp/incorrectly-checked-scanf",
+      "name": "Incorrect return-value check for a 'scanf'-like function",
+      "pack_version": "1.5.11",
+      "resolved_source_path": "/Users/nicksimpson/.codeql/packages/codeql/cpp-queries/1.5.11/Critical/IncorrectCheckScanf.ql",
+      "destination_path": "data/queries/cpp/issues/Incorrect return-value check for a 'scanf'-like function.ql",
+      "source_sha256": "5751370b188848d2b34bb8255e6c0929bcb69ee58e26d187088005947cfd9e75",
+      "destination_sha256": "5751370b188848d2b34bb8255e6c0929bcb69ee58e26d187088005947cfd9e75"
+    },
+    {
+      "id": "cpp/missing-check-scanf",
+      "name": "Missing return-value check for a 'scanf'-like function",
+      "pack_version": "1.5.11",
+      "resolved_source_path": "/Users/nicksimpson/.codeql/packages/codeql/cpp-queries/1.5.11/Critical/MissingCheckScanf.ql",
+      "destination_path": "data/queries/cpp/issues/Missing return-value check for a 'scanf'-like function.ql",
+      "source_sha256": "ecb3e9b76b839e26c83b66541adea4711123afb39adc30402715c08b733b2419",
+      "destination_sha256": "ecb3e9b76b839e26c83b66541adea4711123afb39adc30402715c08b733b2419"
+    },
+    {
+      "id": "cpp/new-array-delete-mismatch",
+      "name": "'new[]' array freed with 'delete'",
+      "pack_version": "1.5.11",
+      "resolved_source_path": "/Users/nicksimpson/.codeql/packages/codeql/cpp-queries/1.5.11/Critical/NewArrayDeleteMismatch.ql",
+      "destination_path": "data/queries/cpp/issues/'new[]' array freed with 'delete'.ql",
+      "source_sha256": "58daf635a3fef05b5ad57b6ea664212e3a181c8badb260e4a0459de56179e7be",
+      "destination_sha256": "58daf635a3fef05b5ad57b6ea664212e3a181c8badb260e4a0459de56179e7be"
+    },
+    {
+      "id": "cpp/suspicious-allocation-size",
+      "name": "Not enough memory allocated for array of pointer type",
+      "pack_version": "1.5.11",
+      "resolved_source_path": "/Users/nicksimpson/.codeql/packages/codeql/cpp-queries/1.5.11/Critical/SizeCheck2.ql",
+      "destination_path": "data/queries/cpp/issues/Not enough memory allocated for array of pointer type.ql",
+      "source_sha256": "e922fd90899ae98cf5108db2c0c5fed9cc2d21455b15ffc6f130ada433f3566c",
+      "destination_sha256": "e922fd90899ae98cf5108db2c0c5fed9cc2d21455b15ffc6f130ada433f3566c"
+    },
+    {
+      "id": "cpp/operator-precedence-logic-error-when-use-bitwise-logical-operations",
+      "name": "Operator Precedence Logic Error When Use Bitwise Or Logical Operations",
+      "pack_version": "1.5.11",
+      "resolved_source_path": "/Users/nicksimpson/.codeql/packages/codeql/cpp-queries/1.5.11/experimental/Security/CWE/CWE-783/OperatorPrecedenceLogicErrorWhenUseBitwiseOrLogicalOperations.ql",
+      "destination_path": "data/queries/cpp/issues/Operator Precedence Logic Error When Use Bitwise Or Logical Operations.ql",
+      "source_sha256": "601ed9df62cf3681073b7520bc813311b2492296aafc46ba31b306d23a0b43c7",
+      "destination_sha256": "601ed9df62cf3681073b7520bc813311b2492296aafc46ba31b306d23a0b43c7"
+    },
+    {
+      "id": "cpp/late-negative-test",
+      "name": "Pointer offset used before it is checked",
+      "pack_version": "1.5.11",
+      "resolved_source_path": "/Users/nicksimpson/.codeql/packages/codeql/cpp-queries/1.5.11/Critical/LateNegativeTest.ql",
+      "destination_path": "data/queries/cpp/issues/Pointer offset used before it is checked.ql",
+      "source_sha256": "c6d9c6bda92c4b39d9bc43e34f61d03f7fcd462263ed42d002e907c95df2d616",
+      "destination_sha256": "c6d9c6bda92c4b39d9bc43e34f61d03f7fcd462263ed42d002e907c95df2d616"
+    },
+    {
+      "id": "cpp/return-stack-allocated-memory",
+      "name": "Returning stack-allocated memory",
+      "pack_version": "1.5.11",
+      "resolved_source_path": "/Users/nicksimpson/.codeql/packages/codeql/cpp-queries/1.5.11/Likely Bugs/Memory Management/ReturnStackAllocatedMemory.ql",
+      "destination_path": "data/queries/cpp/issues/Returning stack-allocated memory.ql",
+      "source_sha256": "d9271e3f564ea6155a7c61db81c1079093db62f498c55f902e055cbffb690adc",
+      "destination_sha256": "d9271e3f564ea6155a7c61db81c1079093db62f498c55f902e055cbffb690adc"
+    },
+    {
+      "id": "cpp/double-free",
+      "name": "Potential double free",
+      "pack_version": "1.5.11",
+      "resolved_source_path": "/Users/nicksimpson/.codeql/packages/codeql/cpp-queries/1.5.11/Critical/DoubleFree.ql",
+      "destination_path": "data/queries/cpp/issues/Potential double free.ql",
+      "source_sha256": "04d304b267ee60e4f0404e9d2775cca961046276bc2bd95dbec12b268d842041",
+      "destination_sha256": "04d304b267ee60e4f0404e9d2775cca961046276bc2bd95dbec12b268d842041"
+    },
+    {
+      "id": "cpp/use-after-free",
+      "name": "Potential use after free",
+      "pack_version": "1.5.11",
+      "resolved_source_path": "/Users/nicksimpson/.codeql/packages/codeql/cpp-queries/1.5.11/Critical/UseAfterFree.ql",
+      "destination_path": "data/queries/cpp/issues/Potential use after free.ql",
+      "source_sha256": "086d915e8b195f5e3122005ef9806af44fa60a999e4e012fd17c03a40260a98c",
+      "destination_sha256": "086d915e8b195f5e3122005ef9806af44fa60a999e4e012fd17c03a40260a98c"
+    },
+    {
+      "id": "cpp/redundant-null-check-param",
+      "name": "Redundant null check or missing null check of parameter",
+      "pack_version": "1.5.11",
+      "resolved_source_path": "/Users/nicksimpson/.codeql/packages/codeql/cpp-queries/1.5.11/experimental/Likely Bugs/RedundantNullCheckParam.ql",
+      "destination_path": "data/queries/cpp/issues/Redundant null check or missing null check of parameter.ql",
+      "source_sha256": "cb2417e91ea146ef0b9807fd5838b5d18868af0c62339623c628226e85f09ea2",
+      "destination_sha256": "cb2417e91ea146ef0b9807fd5838b5d18868af0c62339623c628226e85f09ea2"
+    },
+    {
+      "id": "cpp/memory-unsafe-function-scan",
+      "name": "Scanf function without a specified length",
+      "pack_version": "1.5.11",
+      "resolved_source_path": "/Users/nicksimpson/.codeql/packages/codeql/cpp-queries/1.5.11/experimental/Security/CWE/CWE-120/MemoryUnsafeFunctionScan.ql",
+      "destination_path": "data/queries/cpp/issues/Scanf function without a specified length.ql",
+      "source_sha256": "249bee30395861dbd546fb46b3a05d57a0cf3f11445b5b5525f086763dde08fa",
+      "destination_sha256": "249bee30395861dbd546fb46b3a05d57a0cf3f11445b5b5525f086763dde08fa"
+    },
+    {
+      "id": "cpp/missing-negativity-test",
+      "name": "Unchecked return value used as offset",
+      "pack_version": "1.5.11",
+      "resolved_source_path": "/Users/nicksimpson/.codeql/packages/codeql/cpp-queries/1.5.11/Critical/MissingNegativityTest.ql",
+      "destination_path": "data/queries/cpp/issues/Unchecked return value used as offset.ql",
+      "source_sha256": "4c514fec3fc8a97a853b0102382ad88fe7516db428ef687d9c2a14f9cec70396",
+      "destination_sha256": "4c514fec3fc8a97a853b0102382ad88fe7516db428ef687d9c2a14f9cec70396"
+    }
+  ],
+  "operator_precedence_alternate_variant": {
+    "id": "cpp/operator-precedence-logic-error-when-use-bool-type",
+    "path": "/Users/nicksimpson/.codeql/packages/codeql/cpp-queries/1.5.11/experimental/Security/CWE/CWE-783/OperatorPrecedenceLogicErrorWhenUseBoolType.ql"
+  }
+}

@@ -12,7 +12,9 @@ import warnings
 warnings.filterwarnings("ignore", category=UserWarning, module="pydantic")
 
 import argparse
+import logging
 import sys
+from datetime import datetime
 from pathlib import Path
 from typing import Optional
 
@@ -184,16 +186,16 @@ def step3_classify_results_with_llm(dbs_dir: str, lang: str) -> None:
 
 def step4_open_ui() -> None:
     """
-    Step 4: Open the results UI (optional).
+    Step 4: Print completion message and direct user to the UI command.
 
     Note:
-        This function does not raise exceptions. UI errors are handled internally by the UI module.
+        The TUI is no longer auto-launched because Textual can crash and dump
+        tracebacks to the terminal. Users should run 'vulnhalla-ui' separately.
     """
-    logger.info("\n[4/4] Opening UI")
-    logger.info("-" * 60)
+    logger.info("")
     logger.info("[+] Pipeline completed successfully!")
-    logger.info("Opening results UI...")
-    ui_main()
+    logger.info("")
+    logger.info("To view results, run: vulnhalla-ui")
 
 
 def main_analyze() -> None:
@@ -253,7 +255,19 @@ def analyze_pipeline(
         This function catches and handles all exceptions internally, logging errors
         and exiting with code 1 on failure. It does not raise exceptions.
     """
-    logger.info("🚀 Starting Vulnhalla Analysis Pipeline")
+    # --- Auto-save run log to logs/ directory ---
+    log_dir = Path("logs")
+    log_dir.mkdir(exist_ok=True)
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    run_label = repo.replace("/", "_") if repo else Path(local_db_path).name if local_db_path else "unknown"
+    log_file_path = log_dir / f"{timestamp}_{run_label}.log"
+    file_handler = logging.FileHandler(str(log_file_path), encoding="utf-8")
+    file_handler.setLevel(logging.DEBUG)
+    file_handler.setFormatter(logging.Formatter("%(message)s"))
+    logging.getLogger().addHandler(file_handler)
+    logger.info("Run log will be saved to: %s", log_file_path)
+
+    logger.info("Starting Vulnhalla Analysis Pipeline")
     logger.info("=" * 60)
     
     # Validate configuration before starting

@@ -1,0 +1,8 @@
+This analysis detects mismatched allocation and deallocation: memory allocated with new[] and freed with delete.
+1. Confirm the allocation site actually uses new[] (array form).
+2. Confirm the deallocation site uses delete (scalar) instead of delete[].
+3. Are these the same object/alias on a reachable path?
+4. Is this path reachable in production code and not dead/test-only code?
+Use the tools to trace allocation aliases and deallocation paths.
+If deallocation is done with delete[] or safe ownership wrappers, there is no issue.
+Only flag if a real new[]/delete mismatch is reachable.

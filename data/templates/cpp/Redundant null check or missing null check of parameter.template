@@ -1,0 +1,8 @@
+This analysis detects inconsistent null-check assumptions for parameters.
+1. Where is the parameter checked for null and where is it dereferenced without checks?
+2. Can null realistically reach unchecked dereference points?
+3. Is there a contract/annotation guaranteeing non-null that makes checks redundant?
+4. If null is possible, what is the impact at dereference sites?
+Use the tools to trace parameter origin and guards across paths.
+If non-null is guaranteed on all paths, there is no issue.
+Only flag if null can reach an unchecked dereference or checks are contradictory in a risky way.

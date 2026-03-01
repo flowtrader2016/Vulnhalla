@@ -1,0 +1,8 @@
+This analysis detects possible double-free of the same allocation.
+1. Identify first free and potential second free sites.
+2. Confirm both frees can target the same allocation/alias.
+3. Are the frees on mutually exclusive control-flow paths?
+4. Is pointer invalidation (for example set to null or reassigned) guaranteed before second free?
+Use the tools to trace aliasing and path feasibility.
+If only one free is reachable per allocation, there is no issue.
+Only flag if two frees of the same allocation are reachable.

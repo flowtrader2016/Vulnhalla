@@ -21,6 +21,7 @@ from pathlib import Path, PurePosixPath
 import csv
 import re
 import json
+import time
 from typing import Any, Callable, Dict, List, Optional, Tuple
 from src.utils.common_functions import (
     get_all_dbs,
@@ -298,7 +299,10 @@ class IssueAnalyzer:
         templates_base = Path("data/templates") / lang_folder
         hints_path = templates_base / f"{issue['name']}.template"
         if not hints_path.exists():
+            logger.warning("  No specific template for '%s', falling back to general.template", issue['name'])
             hints_path = templates_base / "general.template"
+        else:
+            logger.info("  Template: %s", hints_path.name)
 
         hints = read_file_utf8(str(hints_path))
 
@@ -536,9 +540,11 @@ class IssueAnalyzer:
         more_data = []
         skipped_issues = []  # Track issues skipped due to LLM errors (timeout, rate limit, etc.)
 
-        logger.info("Found %d issues of type %s", len(issues_of_type), issue_type)
-        logger.info("")
-        for issue in issues_of_type:
+        logger.info("=" * 70)
+        logger.info("ISSUE TYPE: %s", issue_type)
+        logger.info("Found %d issues to analyze", len(issues_of_type))
+        logger.info("=" * 70)
+        for issue_index, issue in enumerate(issues_of_type, 1):
             self.db_path = issue["db_path"]
             db_path_obj = Path(self.db_path)
             db_yml_path = db_path_obj / "codeql-database.yml"
@@ -597,12 +603,23 @@ class IssueAnalyzer:
                     extra_lines, function_tree_file, src_zip_path, code, current_function
                 )
 
+            # --- Verbose output: per-issue header ---
+            file_name = PurePosixPath(issue["file"]).name
+            logger.info("")
+            logger.info("-" * 70)
+            logger.info("Issue %d/%d (ID: %d)", issue_index, len(issues_of_type), issue_id)
+            logger.info("  File: %s:%s", file_name, issue["start_line"])
+            logger.info("  Function: %s", current_function.get("function_name", "unknown"))
+            logger.info("  Snippet: %s", snippet[:120])
+
             prompt = self.build_prompt_by_template(issue, message, snippet, code)
 
             # Save raw input to the LLM
             self.save_raw_input_data(prompt, function_tree_file, current_function, results_folder, issue_id)
 
             # Send to LLM (with error handling for timeouts and API errors)
+            logger.info("  Sending to LLM...")
+            issue_start_time = time.time()
             try:
                 messages, content = llm_analyzer.run_llm_security_analysis(
                     prompt,
@@ -613,10 +630,13 @@ class IssueAnalyzer:
                 )
             except LLMApiError as e:
                 # Skip this issue on LLM errors (timeout, rate limit, etc.) and continue with others
-                logger.warning("Issue ID: %s SKIPPED - LLM error: %s", issue_id, e)
+                elapsed = time.time() - issue_start_time
+                logger.warning("  Issue ID: %s SKIPPED after %.1fs - LLM error: %s", issue_id, elapsed, e)
                 skipped_issues.append(issue_id)
                 issue_id += 1
                 continue
+
+            elapsed = time.time() - issue_start_time
 
             gpt_result = self.format_llm_messages(messages)
             final_file = Path(results_folder) / f"{issue_id}_final.json"
@@ -626,26 +646,33 @@ class IssueAnalyzer:
             status = self.determine_issue_status(content)
             if status == "true":
                 real_issues.append(issue_id)
-                status = "True Positive"
+                status_display = "TRUE POSITIVE"
             elif status == "false":
                 false_issues.append(issue_id)
-                status = "False Positive"
+                status_display = "False Positive"
             else:
                 more_data.append(issue_id)
-                status = "LLM needs More Data"
+                status_display = "Needs More Data"
 
-            # Log issue status
-            logger.info("Issue ID: %s, LLM decision: → %s", issue_id, status)
+            # Count tool call rounds in the conversation
+            tool_rounds = sum(1 for m in messages if m.get("role") == "tool")
+
+            # Log issue result with timing
+            logger.info("  VERDICT: %s (%.1fs, %d tool calls)", status_display, elapsed, tool_rounds)
             issue_id += 1
 
         logger.info("")
-        logger.info("Issue type: %s", issue_type)
-        logger.info("Total issues: %d", len(issues_of_type))
-        logger.info("True Positive: %d", len(real_issues))
-        logger.info("False Positive: %d", len(false_issues))
-        logger.info("LLM needs More Data: %d", len(more_data))
+        logger.info("=" * 70)
+        logger.info("SUMMARY: %s", issue_type)
+        logger.info("  Total analyzed: %d", len(issues_of_type))
+        logger.info("  True Positive:  %d", len(real_issues))
+        logger.info("  False Positive: %d", len(false_issues))
+        logger.info("  Needs More Data: %d", len(more_data))
         if skipped_issues:
-            logger.warning("Skipped (LLM errors): %d (IDs: %s)", len(skipped_issues), skipped_issues)
+            logger.warning("  Skipped (LLM errors): %d (IDs: %s)", len(skipped_issues), skipped_issues)
+        if real_issues:
+            logger.info("  >>> True positive IDs: %s", real_issues)
+        logger.info("=" * 70)
         logger.info("")
 
 

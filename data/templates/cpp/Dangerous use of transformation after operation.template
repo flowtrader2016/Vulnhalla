@@ -1,0 +1,8 @@
+This analysis detects cases where a type transformation (cast) is applied after an arithmetic or bitwise operation, potentially causing data loss or incorrect logic.
+1. What are the operand types and what is the target type after transformation?
+2. What value ranges can realistically reach this expression? Could values exceed target bounds?
+3. Would casting before the operation change the semantics compared to casting after the operation?
+4. Is the conversion intentional and safe (for example explicit truncation with bounded input), or accidental?
+Use the tools to trace value ranges and type flow.
+If the post-operation cast cannot change behavior for realistic inputs, there is no issue.
+Only flag if cast-after-operation can produce wrong or unsafe behavior.

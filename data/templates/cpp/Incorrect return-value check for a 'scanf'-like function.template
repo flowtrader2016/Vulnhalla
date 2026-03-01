@@ -1,0 +1,8 @@
+This analysis detects incorrect checks of scanf-like return values. These functions return the number of successfully matched items.
+1. How many conversions are expected from the format string?
+2. What value is actually checked against the return value?
+3. Can partial parsing pass this check and leave output variables uninitialized or stale?
+4. Are the parsed values used in security-relevant control flow or memory operations afterward?
+Use the tools to inspect format strings, control flow, and downstream uses.
+If the check enforces successful parsing of all required items, there is no issue.
+Only flag if the current check can let failed/partial parses proceed unsafely.

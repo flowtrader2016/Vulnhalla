@@ -1,0 +1,8 @@
+This analysis detects returning pointers/references to stack-allocated objects.
+1. What object address/reference is returned?
+2. Is the object local stack storage, static storage, or heap storage?
+3. Could macro expansion or wrapper APIs change storage duration semantics?
+4. Is the returned value consumed by callers in ways that can dereference dangling memory?
+Use the tools to confirm storage duration and escape path.
+If the returned object has valid lifetime after return, there is no issue.
+Only flag if a stack object escapes function scope.

@@ -1,0 +1,8 @@
+This analysis detects expressions where bitwise and logical operators are mixed and precedence may not match intent.
+1. What is the exact parse order under C/C++ operator precedence rules?
+2. Does that parse order differ from likely intended grouping?
+3. Do realistic inputs lead to materially different results between intended and actual grouping?
+4. Could explicit parentheses remove ambiguity and change behavior?
+Use the tools to evaluate expression outcomes along real program paths.
+If precedence does not change effective behavior, there is no issue.
+Only flag if precedence ambiguity causes incorrect or unsafe logic.

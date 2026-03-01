@@ -1,0 +1,8 @@
+This analysis detects using unchecked function return values as array offsets/pointer indices.
+1. What function provides the offset and what are its error return values?
+2. Is negativity/error-state checked before the value is used as an offset?
+3. Can error values (for example -1) flow into indexing/pointer arithmetic?
+4. Is this path reachable with realistic inputs?
+Use the tools to trace from return site to offset usage and guards.
+If offset is fully validated before use, there is no issue.
+Only flag if unchecked error returns can reach memory access.

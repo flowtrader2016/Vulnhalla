@@ -1,0 +1,8 @@
+This analysis detects scanf-family formats that read unbounded strings.
+1. Does the format string contain %s or %[ without a width limit?
+2. What is the destination buffer size at the call site?
+3. Is input attacker-controlled or externally influenced?
+4. Are there independent bounds checks that make overflow impossible?
+Use the tools to inspect format literals, destination types, and caller constraints.
+If effective bounds are guaranteed, there is no issue.
+Only flag if unbounded reads can overflow destination storage.

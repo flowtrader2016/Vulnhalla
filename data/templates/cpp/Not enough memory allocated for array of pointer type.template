@@ -1,0 +1,8 @@
+This analysis detects suspicious allocation size calculations for pointer arrays.
+1. What expression computes the allocation size?
+2. Is sizeof(pointer) used where sizeof(pointed-to type) is required?
+3. What is the required size for the later writes/initialization operations?
+4. Can this mismatch lead to out-of-bounds writes for realistic input sizes?
+Use the tools to compare allocated byte count versus actual element usage.
+If allocated size is sufficient for all writes, there is no issue.
+Only flag if the allocation can be genuinely undersized at runtime.

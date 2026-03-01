@@ -1,0 +1,8 @@
+This analysis detects memory access after free.
+1. Where is memory released?
+2. Where is the subsequent read/write/use through the same pointer or alias?
+3. Is the pointer reassigned to valid memory before use?
+4. Are free and use operations reachable on the same execution path?
+Use the tools to verify alias flow and path reachability.
+If use cannot occur after free on any reachable path, there is no issue.
+Only flag if freed memory can be accessed afterward.
