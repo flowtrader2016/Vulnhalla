@@ -1,0 +1,231 @@
+# Vulnhalla Replication Plan
+
+Reference: See blog_post.md in this repo for the full CyberArk blog post detailing the methodology and results.
+
+## Overview
+
+The blog found 7 CVEs in 2 days on $80 budget by running **14 CodeQL queries** with **issue-specific guided question templates** across 100 repos. The shipped tool only includes **1 of 14 queries** and **1 of 14 templates**. Here's the plan to close that gap.
+
+## Phase 1: Add the 13 Missing CodeQL Queries
+
+All 14 queries are **standard CodeQL queries** — none are custom. They can be sourced directly from the `github/codeql` repository. The template matching logic in `vulnhalla.py:294` maps `@name` metadata in the `.ql` file directly to `<exact name>.template`.
+
+| # | Query Name (`@name`) | CodeQL ID | Status | Source Path in github/codeql |
+|---|---|---|---|---|
+| 1 | Copy function using source size | `cpp/overflow-destination` | Stable | **Already have it** |
+| 2 | Dangerous use of transformation after operation | `cpp/dangerous-cin` | Experimental | `cpp/ql/src/experimental/Security/CWE/CWE-704/DangerousUseOfTransformationAfterOperation.ql` |
+| 3 | Incorrect return-value check for scanf-like function | `cpp/incorrectly-checked-scanf` | Stable | `cpp/ql/src/Security/CWE/CWE-253/IncorrectlyCheckedScanf.ql` |
+| 4 | Missing return-value check for a 'scanf'-like function | `cpp/missing-check-scanf` | Stable | `cpp/ql/src/Security/CWE/CWE-252/MissingCheckScanf.ql` |
+| 5 | new[] array freed with delete | `cpp/new-array-delete-mismatch` | Stable | `cpp/ql/src/Critical/NewArrayDeleteMismatch.ql` |
+| 6 | Not enough memory allocated for array of pointer type | `cpp/allocation-too-small` | Stable | `cpp/ql/src/Critical/SizeCheck.ql` |
+| 7 | Operator precedence logic error | `cpp/operator-precedence-logic-error` | Experimental | `cpp/ql/src/experimental/Likely Bugs/OperatorPrecedenceLogicError.ql` |
+| 8 | Pointer offset used before check | `cpp/pointer-offset-used-before-check` | Experimental | `cpp/ql/src/experimental/Security/CWE/CWE-120/PointerOffsetUsedBeforeCheck.ql` |
+| 9 | Pointer to stack object used as return value | `cpp/return-stack-allocated-memory` | Stable | `cpp/ql/src/Critical/ReturnStackAllocatedMemory.ql` |
+| 10 | Potential double free | `cpp/double-free` | Stable | `cpp/ql/src/Security/CWE/CWE-415/DoubleFree.ql` |
+| 11 | Potential use after free | `cpp/use-after-free` | Stable | `cpp/ql/src/Security/CWE/CWE-416/UseAfterFree.ql` |
+| 12 | Redundant/missing null check of parameter | `cpp/contradictory-null-checks` | Deprecated | `cpp/ql/src/Critical/MissingNullTest.ql` |
+| 13 | Scanf function without specified length | `cpp/scanf-without-format-length` | Experimental | `cpp/ql/src/experimental/Security/CWE/CWE-120/ScanfFunctionWithoutFormatLength.ql` |
+| 14 | Unchecked return value used as offset | `cpp/unchecked-return-value-as-offset` | Stable | `cpp/ql/src/Critical/OffByOne.ql` or similar |
+
+**Implementation**: For each query, we copy the `.ql` file from the CodeQL standard library into `data/queries/cpp/issues/`, ensuring the `@name` metadata matches exactly (this is what drives template matching). No changes needed to `qlpack.yml` — it already depends on `codeql/cpp-all: "*"`.
+
+**Critical gotcha**: Existing `issues.csv` and `FunctionTree.csv` files in the output database folder must be deleted before re-running, otherwise Vulnhalla skips re-analysis.
+
+## Phase 2: Create 13 Guided Question Templates
+
+Each template goes in `data/templates/cpp/<exact query name>.template`. The template content is the "hints" that get injected into `template.template` at the `{hints}` placeholder. Following the blog's methodology, each template should force step-by-step reasoning about data flow, control flow, and exploitability — like coaching a junior researcher.
+
+Here are the 13 templates to create:
+
+### 1. Dangerous use of transformation after operation
+```
+This analysis detects cases where a type transformation (cast) is applied after an arithmetic or bitwise operation, potentially causing data loss or unexpected behavior.
+1. What types are involved in the operation and the subsequent transformation?
+2. What is the range of values the operands can take? Could they exceed the target type's bounds?
+3. Is the transformation intentional (e.g., deliberate truncation) or accidental?
+4. Could reordering the cast before the operation change the result? If so, is the current order safe?
+Use the tools to trace the full data flow and type information.
+If the transformation cannot cause data loss given the actual value ranges, there is no issue.
+Only flag if the cast after operation can produce incorrect results with realistic inputs.
+```
+
+### 2. Incorrect return-value check for scanf-like function
+```
+This analysis detects incorrect checks of scanf/sscanf/fscanf return values. These functions return the number of successfully matched items, and checking against the wrong value can miss parse failures.
+1. What scanf-like function is being called and how many format specifiers does it have?
+2. What value is the return being compared against? Is it the correct number of expected conversions?
+3. Could a partial parse (fewer items matched) slip through the current check?
+4. What happens downstream if fewer items were parsed than expected — are the variables used uninitialized?
+Use the tools to trace the format string and the check condition.
+If the check correctly validates that all expected items were parsed, there is no issue.
+Only flag if the check allows partial parses that could lead to use of uninitialized data.
+```
+
+### 3. Missing return-value check for a 'scanf'-like function
+```
+This analysis detects calls to scanf-like functions whose return value is completely ignored, meaning parse failures go undetected.
+1. Is the return value of the scanf-like function captured in a variable or checked in any way?
+2. How many format specifiers does the format string contain?
+3. What happens to the target variables if scanf fails — are they used afterward without initialization?
+4. Is this in test code, example code, or production code? Is the input source trusted or untrusted?
+Use the tools to check if the return value is used anywhere.
+If the return value is checked (even indirectly), there is no issue.
+Only flag if the return is truly ignored AND the target variables are used subsequently.
+```
+
+### 4. new[] array freed with delete
+```
+This analysis detects mismatched allocation/deallocation: memory allocated with new[] being freed with delete instead of delete[].
+1. Where is the memory allocated? Confirm it uses new[] (array form).
+2. Where is it freed? Confirm it uses plain delete instead of delete[].
+3. Could the allocation be wrapped in a smart pointer or RAII class that handles deletion correctly?
+4. Is the type trivially destructible? (Even so, this is undefined behavior per the C++ standard.)
+Use the tools to trace the allocation and deallocation paths.
+If the memory is freed with delete[] or via a smart pointer, there is no issue.
+Only flag if new[] memory is genuinely freed with plain delete.
+```
+
+### 5. Not enough memory allocated for array of pointer type
+```
+This analysis detects allocations where sizeof(pointer) is used instead of sizeof(pointed-to-type), resulting in too little memory for the actual data.
+1. What is being allocated and what sizeof expression is used?
+2. What is the intended element type vs. the type used in sizeof?
+3. Is sizeof(T*) being used where sizeof(T) was intended? What are the actual sizes of each?
+4. Could this cause out-of-bounds writes when the array is populated?
+Use the tools to compare the allocated size against actual usage.
+If sizeof matches the intended element type, there is no issue.
+Only flag if the allocation is genuinely undersized for the data being stored.
+```
+
+### 6. Operator precedence logic error
+```
+This analysis detects expressions where operator precedence may not match the programmer's intent, such as bitwise operators mixed with comparison or logical operators without explicit parentheses.
+1. What operators are involved and what is their actual precedence order?
+2. Does the expression evaluate differently than what the surrounding code logic suggests was intended?
+3. Are there parentheses that clarify the intended grouping? If not, would adding them change the result?
+4. What values flow into this expression — does the precedence error actually produce wrong results?
+Use the tools to evaluate the expression with and without the assumed grouping.
+If the expression produces the correct result regardless of precedence interpretation, there is no issue.
+Only flag if operator precedence genuinely causes incorrect evaluation.
+```
+
+### 7. Pointer offset used before check
+```
+This analysis detects cases where a pointer is dereferenced at an offset before the offset/bounds are validated, potentially causing out-of-bounds access.
+1. Where is the pointer dereferenced with the offset?
+2. Where is the bounds check for that offset? Does it come before or after the dereference?
+3. Could the code path reach the dereference without passing through the check?
+4. What is the valid range for the offset and could it realistically be out of bounds?
+Use the tools to trace the control flow between dereference and check.
+If the bounds check always precedes the dereference on all paths, there is no issue.
+Only flag if there exists a code path where the offset is used before being validated.
+```
+
+### 8. Pointer to stack object used as return value
+```
+This analysis detects functions that return pointers or references to stack-allocated local variables, which become dangling after the function returns.
+1. What local variable's address is being returned?
+2. Is it stack-allocated (local variable, array on stack) or heap-allocated (malloc/new)?
+3. Could the variable be static, making its address valid after return?
+4. Is the returned pointer used by the caller, and if so, how immediately?
+Use the tools to check the storage duration of the returned object.
+If the object is heap-allocated, static, or the address is not actually returned, there is no issue.
+Only flag if a genuinely stack-allocated object's address escapes the function.
+```
+
+### 9. Potential double free
+```
+This analysis detects cases where the same memory may be freed more than once, which is undefined behavior and can lead to heap corruption or code execution.
+1. Where is the memory first freed?
+2. Where is the potential second free? Is it on the same pointer or an alias?
+3. Is there a conditional path where only one free executes, or could both execute sequentially?
+4. Is the pointer set to NULL after the first free, preventing the second from being harmful?
+Use the tools to trace all free() calls on the pointer and its aliases across all paths.
+If the pointer is nulled after free or the two frees are on mutually exclusive paths, there is no issue.
+Only flag if the same memory can genuinely be freed twice on a reachable code path.
+```
+
+### 10. Potential use after free
+```
+This analysis detects cases where memory is accessed after being freed, leading to undefined behavior, crashes, or exploitable conditions.
+1. Where is the memory freed?
+2. Where is the subsequent use? What operation is performed (read, write, function call)?
+3. Are the free and use on the same code path, or are they on mutually exclusive branches?
+4. Could the pointer have been reassigned to new valid memory between the free and use?
+Use the tools to trace the pointer from free to use across all control flow paths.
+If the use and free are on mutually exclusive paths, or the pointer is reassigned, there is no issue.
+Only flag if freed memory is genuinely accessed on a reachable code path.
+```
+
+### 11. Redundant/missing null check of parameter
+```
+This analysis detects inconsistent null checking: a pointer is checked for null in some paths but dereferenced without a check in others, suggesting either a missing guard or a redundant check.
+1. Where is the pointer checked for null?
+2. Where is it dereferenced without a null check?
+3. Can the pointer actually be null at the unchecked dereference point? Trace its origin.
+4. Is the null check redundant (pointer is guaranteed non-null by contract/caller), or is the missing check a real bug?
+Use the tools to determine if the pointer can be null when dereferenced.
+If the pointer is guaranteed non-null at the dereference (by contract, prior assignment, or dominating check), there is no issue.
+Only flag if the pointer can genuinely be null at the unchecked dereference.
+```
+
+### 12. Scanf function without specified length
+```
+This analysis detects scanf-family calls using %s or %[ without a maximum field width, allowing unbounded input to overflow the target buffer.
+1. What is the format string? Does it contain %s or %[ without a width specifier?
+2. What is the size of the destination buffer?
+3. Is the input source trusted (e.g., reading from a known-format file) or untrusted (e.g., user input, network)?
+4. Are there any preceding length checks or is the buffer dynamically sized to match input?
+Use the tools to check the format string and destination buffer.
+If a width specifier limits input to the buffer size, or the input is bounded by other means, there is no issue.
+Only flag if unbounded input can genuinely overflow the destination buffer.
+```
+
+### 13. Unchecked return value used as offset
+```
+This analysis detects cases where a function's return value is used as an array index or pointer offset without checking for error conditions (e.g., -1 or negative values).
+1. What function's return value is used as the offset? What does it return on error?
+2. Is the return value checked for the error condition before being used as an offset?
+3. Could the error return value (e.g., -1) cause an out-of-bounds access when used as an index?
+4. Is there any indirect validation (e.g., the function is guaranteed to succeed in this context)?
+Use the tools to trace from the function call to the array/pointer access.
+If the return value is validated before use as an offset, there is no issue.
+Only flag if an unchecked error return genuinely reaches an array access or pointer arithmetic.
+```
+
+## Phase 3: Locate and Copy the Actual `.ql` Files
+
+The exact source paths in github/codeql need verification. We'll search the installed CodeQL packs to find each query by its `@name` or `@id`, then copy them into our issues directory.
+
+## Phase 4: Target Selection
+
+From `codeql_targets.json`, prioritized C/C++ targets with pre-built CodeQL databases:
+
+| Priority | Target (nwo) | Rationale |
+|---|---|---|
+| 1 | **curl/curl** | Already downloaded, well-maintained, high attack surface |
+| 2 | **libuv/libuv** | Core networking library, used by Node.js |
+| 3 | **coinbase/cb-mpc** | Crypto MPC library, bug bounty program |
+| 4 | **fireblocks/mpc-lib** | Another MPC crypto library |
+| 5 | **nicbarker/clay** | UI layout library |
+| 6 | **niclas-timm/sso-for-laravel** | SSO implementation |
+| 7+ | Remaining cpp targets from the JSON |
+
+**Note**: The blog's CVE targets (Redis, FFmpeg, Linux Kernel, Bullet3, RetroArch) are **not** in our `codeql_targets.json`. We can add them manually if desired.
+
+## Phase 5: Execution Strategy
+
+1. **Add all 13 queries** to `data/queries/cpp/issues/`
+2. **Add all 13 templates** to `data/templates/cpp/`
+3. **Delete stale cache files** (`issues.csv`, `FunctionTree.csv`) from any previously analyzed target
+4. **Run Vulnhalla** on each target: `poetry run vulnhalla <target>`
+5. **Review results** — the blog achieved 50-97% false positive reduction depending on query type
+6. **Cost estimate**: At Gemini 3 Flash pricing ($0.50/1M input), even 2,000+ findings across multiple repos should stay well under $20
+
+## Implementation Order
+
+We execute in this order:
+1. Locate and copy all 13 `.ql` files from the CodeQL standard library
+2. Create all 13 `.template` files
+3. Clean curl's cache and re-run with all 14 queries
+4. Review curl results, then move to libuv and other targets
